@@ -1,0 +1,82 @@
+@font-face {
+    font-family: "Nexa-Bold";
+    src: url("../resources/fonts/Nexa-Bold.otf")
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("../resources/fonts/Helvetica.ttc")
+}
+
+html, body, .container {
+    height: 100%;
+    font-family: "Nexa-Bold"
+}
+
+.title-row {
+    height: 20%;
+}
+
+.title-container {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    border-bottom: 3px solid #C63212;
+    padding-bottom: 2px;   
+    font-family: "Nexa-Bold";
+}
+
+.map-row {
+    height: 50%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.row-location {
+    margin-top: 15px;
+    height: 5%;
+}
+
+.row-location h3 {
+    margin: 0;
+}
+
+.align-vertically {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location {
+    color: white;
+    background-color: #C63212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1200px) {
+    .title {
+            font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+}
+
