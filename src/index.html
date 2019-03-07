@@ -9,9 +9,10 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
-	
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBB9ZwnBWmSvxcLLeyz-EEmhG9DBZHP004&libraries=places"></script>
@@ -35,24 +36,62 @@
       </div>
 		</div>
 			
-		<div class="row map-row">
+		<div class="row h-50">
       <div id="map">
         Mapa
       </div>          
     </div>
     
 		<div class="row row-location">
-      <div class="col-7 text-center align-vertically">
-        <h3 id="location"></h3>
+      <div class="col-12 d-sm-flex d-md-none text-center location align-vertically">
+        <h5>Mi Localización</h5>			
       </div>
-      <div class="col-1 text-center">
+      <div class="col-12 d-sm-flex d-md-none col-7 text-center align-vertically">
+        <h5 class="location-text"></h5>
+      </div>
 
+
+      <div class="col-7 d-md-block d-none text-center align-vertically">
+        <h3 class="location-text"></h3>
       </div>
-      <div class="col-4 text-center location align-vertically">
+      <div class="col-1">
+        
+      </div>
+      <div class="col-4 d-md-flex d-none text-center location align-vertically">
         <h3>Mi Localización</h3>			
       </div>
+    </div>
+    
+    <div class="row mt-5 mt-md-0">
+      <div class="col-2 d-md-flex d-none text-left p-0">
+        <h3>Clima:</h3>
+      </div>
+      <div class="col-2 d-sm-flex d-md-none text-left p-0">
+        <h5>Clima:</h5>
+      </div>
 		</div>
-		
+		<div class="row">
+      <div class="col-12 col-md-7 col-lg-7 table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Temperatura</th>
+              <th>Humedad</th>
+              <th>Descripcion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="temperature"></td>
+              <td id="humidity"></td>
+              <td id="description"></td>
+            </tr>                
+          </tbody>
+        </table>
+      </div>
+
+      
+    </div>
 			
 		
   </div>

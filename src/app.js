@@ -1,9 +1,11 @@
 var map, infoWindow, geocoder;
 
+const API_KEY = '1dd1bc61141d44e5aae36cd0df6c3773';
+const WEATHER_URL = 'http://api.openweathermap.org/data/2.5/weather?';
+
 $(document).ready(function() {
   initMap();
 });
-
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -16,7 +18,8 @@ function initMap() {
           { visibility: "off" }
         ]
       }
-    ]
+    ],
+    disableDefaultUI: true
   });
   infoWindow = new google.maps.InfoWindow;
   geocoder = new google.maps.Geocoder;
@@ -29,7 +32,15 @@ function initMap() {
       };
 
       geocodeLatLng(pos.lat, pos.lng);
-
+      let urlWeather = WEATHER_URL + 'lat=' + pos.lat + '&lon=' + pos.lng + '&lang=es&units=metric&appid=' + API_KEY;
+      $.get(urlWeather, function(data, status){
+        console.log(data);         
+        $('#temperature').text(data.main.temp+'°C');
+        $('#humidity').text(data.main.humidity+'%');
+        let description = capitalizeFirstLetter(data.weather[0].description);
+        $('#description').text(description);
+      });
+      
       infoWindow.setPosition(pos);
       infoWindow.setContent('Estas Aqui');
       infoWindow.open(map);
@@ -50,7 +61,9 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function geocodeLatLng(lat, lng) {
   var latlng = {
@@ -67,7 +80,7 @@ function geocodeLatLng(lat, lng) {
           map: map,
           position: results[0].geometry.location
         });        
-        $('#location').text(results[0].formatted_address);      
+        $('.location-text').text(results[0].formatted_address);      
         var pyrmont = new google.maps.LatLng(lat, lng);
         var request = {
           location: pyrmont,
@@ -78,7 +91,7 @@ function geocodeLatLng(lat, lng) {
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, callback);
       } else {
-        $('#location').text('Localizacion no encontrada');
+        $('.location-text').text('Localizacion no encontrada');
       }
     } else {
       window.alert('Geocoder failed due to: ' + status);
@@ -97,15 +110,13 @@ function callback(results, status) {
 
 function createMarker(place, icon) {
   console.log(icon);
-  
-  var placeLoc = place.geometry.location;
 
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location,
+    position: place.geometry.location,       
     icon: {
       url: icon,
-      scaledSize: new google.maps.Size(20, 20) // pixels
+      scaledSize: new google.maps.Size(20, 20),
     },
     animation: google.maps.Animation.DROP
   });

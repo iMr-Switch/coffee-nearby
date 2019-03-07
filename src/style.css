@@ -30,10 +30,6 @@ html, body, .container {
     font-family: "Nexa-Bold";
 }
 
-.map-row {
-    height: 50%;
-}
-
 #map {
     height: 100%;
     width: 100%;
@@ -62,6 +58,17 @@ html, body, .container {
     justify-content: center;
 }
 
+.table-container {
+    padding-left: 45px;
+    padding-right: 45px;
+    text-align: center;
+}
+
+th {
+    background-color: #C63212;
+    color: black;
+} 
+
 @media (max-width: 1200px) {
     .title {
             font-size: 1.8rem;
@@ -78,5 +85,16 @@ html, body, .container {
     .title {
         font-size: 2rem;
     }
+    
+    .title-row {
+        height: 10%;
+    }
 }
+
+@media (max-width: 576px) {
+    .table-container {
+        padding: 0;
+    }
+}
+
 
