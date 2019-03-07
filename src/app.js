@@ -1,3 +1,7 @@
+/*
+  Made by Antonio Oviedo to SMKOnline
+*/
+
 var map, infoWindow, geocoder;
 
 const API_KEY = '1dd1bc61141d44e5aae36cd0df6c3773';
@@ -34,7 +38,6 @@ function initMap() {
       geocodeLatLng(pos.lat, pos.lng);
       let urlWeather = WEATHER_URL + 'lat=' + pos.lat + '&lon=' + pos.lng + '&lang=es&units=metric&appid=' + API_KEY;
       $.get(urlWeather, function(data, status){
-        console.log(data);         
         $('#temperature').text(data.main.temp+'°C');
         $('#humidity').text(data.main.humidity+'%');
         let description = capitalizeFirstLetter(data.weather[0].description);
@@ -103,20 +106,18 @@ function geocodeLatLng(lat, lng) {
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
-      createMarker(results[i], results[i].icon);
+      createMarker(results[i]);
     }
   }
 }
 
-function createMarker(place, icon) {
-  console.log(icon);
-
+function createMarker(place) {
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,       
     icon: {
-      url: icon,
-      scaledSize: new google.maps.Size(20, 20),
+      url: '../assets/coffee-marker.png',
+      scaledSize: new google.maps.Size(37.5, 62.5),
     },
     animation: google.maps.Animation.DROP
   });
