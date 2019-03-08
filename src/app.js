@@ -83,7 +83,8 @@ function geocodeLatLng(lat, lng) {
           map: map,
           position: results[0].geometry.location
         });        
-        $('.location-text').text(results[0].formatted_address);      
+        $('.location-text').text(results[0].formatted_address);
+        $('.near-icon').removeClass('d-none');      
         var pyrmont = new google.maps.LatLng(lat, lng);
         var request = {
           location: pyrmont,

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -37,19 +38,28 @@
       </div>
       
       <div class="row row-location">
-        <div class="col-12 d-sm-flex d-md-none text-center location align-vertically">
-          <h5>Mi Localización</h5>			
+        <div class="col-12 d-sm-flex d-md-none text-center location location-mobile">
+          <h5>Mi Localización </h5>			
+          <i class="material-icons location-icon">my_location</i>
         </div>
         <div class="col-12 d-sm-flex d-md-none col-7 text-center align-vertically">
+          <i class="material-icons location-icon near-icon d-none">near_me</i>
           <h5 class="location-text"></h5>
         </div>
 
         <div class="col-7 d-md-block d-none text-center align-vertically">
+          <i class="material-icons location-icon near-icon d-none">near_me</i>
           <h3 class="location-text"></h3>
+          
         </div>
         <div class="col-1"></div>
         <div class="col-4 d-md-flex d-none text-center location align-vertically">
-          <h3>Mi Localización</h3>			
+          <div class="w-75">
+            <h3 class="float-left">Mi Localización </h3>			
+          </div>
+          <div>
+            <i class="material-icons location-icon">my_location</i>
+          </div>
         </div>
       </div>
       

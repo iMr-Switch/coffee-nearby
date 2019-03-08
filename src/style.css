@@ -58,6 +58,18 @@ html, body, .container {
     justify-content: center;
 }
 
+.location-icon {
+    color: #4949fb;
+}
+
+.location-text {
+    display: inline;
+}
+
+.location-mobile h5 {
+    margin: 10px;
+}
+
 .table-container {
     padding-left: 45px;
     padding-right: 45px;
