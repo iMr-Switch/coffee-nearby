@@ -5,3 +5,6 @@ COPY prod/default.conf /etc/nginx/conf.d
 COPY / /usr/share/nginx/html
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
+CMD ["apk", "update"]
+CMD ["apk", "add", "nano"]
+CMD ["apk", "add", "certbot"]
